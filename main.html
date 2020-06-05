@@ -1,0 +1,216 @@
+﻿<html>
+    <head>
+        <title>Таможенная стоимость</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="style.css" />
+    </head>
+    <body>
+        <header>
+            <div class="head"><a href="main.html"><img src="header6.png" height="200px" width="300px"></a> </div>
+            <div class="head1"><p >Таможенная стоимость</p></div>
+        </header>
+        <div class="one">
+                <form action="acts.html" >
+                    <button type="submit">Нормативно-правовые акты</button>
+                </form>
+                <form action="methods.html" >
+                    <button type="submit">Методы определения там. стоимости</button>
+                </form>
+                <form action="control.html" >
+                    <button type="submit">Контроль таможенной стоимости</button>
+                </form>
+                <form action="incoterms.html" >
+                    <button type="submit">Incoterms</button>
+                </form>
+                <form action="Declaration.html" >
+                    <button type="submit">Декларирование таможенной стоимости</button>
+                </form>
+                           
+            </div>
+            
+    <div class="text">
+        <p>Таможенная стоимость является одной из важнейших характеристик товара, ввозимого на территорию Евразийского экономического союза.
+            Кроме того, от правильности определения таможенной стоимости зависит объем и полнота поступления в государственный бюджет сумм таможенных платежей, 
+            а также действенность таможенного регулирования в целом.</p>
+            <p>Функционально таможенная стоимость используется в качестве расчетной базы для исчисления таможенных платежей – таможенной пошлины по адвалорным и 
+            комбинированным ставкам, акцизов в случае их установления в процентных ставках, а также налога на добавленную стоимость, взимаемого при ввозе товаров. 
+            В качестве дополнительных сфер ее прямого или косвенного применения можно выделить ведение статистики внешней торговли и специальной таможенной статистики,
+             формирование платежного баланса государства, а также применение иных мер государственного регулирования ВЭД, связанных с таможенной стоимостью товаров, 
+             включая осуществление валютного контроля, применение нетарифных мер государственного регулирования торгово-экономических отношений.</p><p>В настоящее время большая 
+             часть импорта тем или иным образом связана с вопросом определения таможенной стоимости товаров. Для этой цели разработан калькулятор таможенных платежей, 
+             который поможет Вам в решении данного вопроса.</p>
+    </div>
+    <div>
+        
+        <div class="one1"><form action="#openModal"><button type="submit">Калькулятор</button></form></div>
+        
+<div id="openModal" class="modalDialog">
+    <div>
+                    <a href="#close" title="Закрыть" class="close">X</a>
+                    <p><b>Код товара:</b><br>
+                    <input type="text" id="id">
+                    <p><b>Таможенная стоимость, бел.руб.:</b><br>
+                    <input type="text" id="value">
+                    <p><b>Вес, кг:</b><br>
+                    <input type="text" id="weight">
+                    <p><b>Курс евро:</b><br>
+                    <input type="text" id="rate">
+                    <br>
+                    <input type="button" id="btn" value="Рассчитать">
+                    <div id="load"></div><br>
+                    <div id="load1"></div><br>
+                    <div id="load2"></div><br>
+                    <div id="load3"></div>                    
+                    <script>
+                        function someFunc(){
+                        let indeks="";
+                        let val="";
+                        let counter="";
+                        let currency="";
+                        let weight="";
+                        let poshlina=0;
+                        let nach="";
+                        let stavka="";
+                        let DB =[{code : "1801000000", type : "1",stavka1:"0",stavka2:"",stavka3:"50",NDS:"20"},
+    {code : "1802000000", type : "1",stavka1:"5",stavka2:"",stavka3:"50",NDS:"20"},
+    {code : "1803200000", type : "1",stavka1:"5",stavka2:"",stavka3:"50",NDS:"20"},
+    {code : "1805000000", type : "1",stavka1:"5",stavka2:"",stavka3:"50",NDS:"20"},
+    {code : "1806101500", type : "1",stavka1:"5",stavka2:"",stavka3:"50",NDS:"20"},
+    {code : "1806102000", type : "2",stavka1:"",stavka2:"0.2",stavka3:"50",NDS:"20"},
+    {code : "1806103000", type : "2",stavka1:"",stavka2:"0.2",stavka3:"50",NDS:"20"},
+    {code : "1806109000", type : "2",stavka1:"",stavka2:"0.2",stavka3:"50",NDS:"20"},
+    {code : "1806201000", type : "1",stavka1:"5",stavka2:"",stavka3:"50",NDS:"20"},
+    {code : "1806203000", type : "1",stavka1:"5",stavka2:"",stavka3:"50",NDS:"20"},
+    {code : "1806205000", type : "1",stavka1:"5",stavka2:"",stavka3:"50",NDS:"20"},
+    {code : "1806207000", type : "1",stavka1:"5",stavka2:"",stavka3:"50",NDS:"20"},
+    {code : "1806208000", type : "1",stavka1:"5",stavka2:"",stavka3:"50",NDS:"20"},
+    {code : "1806209500", type : "1",stavka1:"5",stavka2:"",stavka3:"50",NDS:"20"},
+    {code : "1806310000", type : "2",stavka1:"",stavka2:"0.2",stavka3:"50",NDS:"20"},
+    {code : "1806321000", type : "2",stavka1:"",stavka2:"0.2",stavka3:"50",NDS:"20"},
+    {code : "1806329000", type : "2",stavka1:"",stavka2:"0.2",stavka3:"50",NDS:"20"},
+    {code : "1806901100", type : "2",stavka1:"",stavka2:"0.28",stavka3:"50",NDS:"20"},
+    {code : "1806901900", type : "2",stavka1:"",stavka2:"0.28",stavka3:"50",NDS:"20"},
+    {code : "1806903100", type : "2",stavka1:"",stavka2:"0.28",stavka3:"50",NDS:"20"},
+    {code : "1806903900", type : "2",stavka1:"",stavka2:"0.28",stavka3:"50",NDS:"20"},
+    {code : "1806905001", type : "2",stavka1:"",stavka2:"0.28",stavka3:"50",NDS:"20"},
+    {code : "1806905002", type : "2",stavka1:"",stavka2:"0.28",stavka3:"50",NDS:"20"},
+    {code : "1806905009", type : "2",stavka1:"",stavka2:"0.28",stavka3:"50",NDS:"20"},
+    {code : "1806906000", type : "2",stavka1:"",stavka2:"0.28",stavka3:"50",NDS:"20"},
+    {code : "1806907000", type : "2",stavka1:"",stavka2:"0.28",stavka3:"50",NDS:"20"},
+    {code : "1806909000", type : "1",stavka1:"10",stavka2:"",stavka3:"50",NDS:"20"},
+    {code : "0901110001", type : "1",stavka1:"0",stavka2:"",stavka3:"50",NDS:"20"},
+    {code : "0901110002", type : "1",stavka1:"0",stavka2:"",stavka3:"50",NDS:"20"},
+    {code : "0901110009", type : "1",stavka1:"0",stavka2:"",stavka3:"50",NDS:"20"},
+    {code : "0901120001", type : "1",stavka1:"0",stavka2:"",stavka3:"50",NDS:"20"},
+    {code : "0901120002", type : "1",stavka1:"0",stavka2:"",stavka3:"50",NDS:"20"},
+    {code : "0901120009", type : "1",stavka1:"0",stavka2:"",stavka3:"50",NDS:"20"},
+    {code : "0901210001", type : "3",stavka1:"8",stavka2:"0.16",stavka3:"50",NDS:"20"},
+    {code : "0901210002", type : "3",stavka1:"8",stavka2:"0.16",stavka3:"50",NDS:"20"},
+    {code : "0901210008", type : "3",stavka1:"8",stavka2:"0.16",stavka3:"50",NDS:"20"},
+    {code : "0901210009", type : "3",stavka1:"8",stavka2:"0.16",stavka3:"50",NDS:"20"},
+    {code : "0901220001", type : "3",stavka1:"8",stavka2:"0.16",stavka3:"50",NDS:"20"},
+    {code : "0901220002", type : "3",stavka1:"8",stavka2:"0.16",stavka3:"50",NDS:"20"},
+    {code : "0901220008", type : "3",stavka1:"8",stavka2:"0.16",stavka3:"50",NDS:"20"},
+    {code : "0901220009", type : "3",stavka1:"8",stavka2:"0.16",stavka3:"50",NDS:"20"},
+    {code : "0901901000", type : "1",stavka1:"5",stavka2:"",stavka3:"50",NDS:"20"},
+    {code : "0901909000", type : "1",stavka1:"5",stavka2:"",stavka3:"50",NDS:"20"},
+    {code : "0902100001", type : "3",stavka1:"12",stavka2:"0.34",stavka3:"50",NDS:"20"},
+    {code : "0902100009", type : "3",stavka1:"12",stavka2:"0.24",stavka3:"50",NDS:"20"},
+    {code : "0902200000", type : "1",stavka1:"0",stavka2:"",stavka3:"50",NDS:"20"},
+    {code : "0902300001", type : "3",stavka1:"12.5",stavka2:"0.5",stavka3:"50",NDS:"20"},
+    {code : "0902300009", type : "3",stavka1:"12.5",stavka2:"0.25",stavka3:"50",NDS:"20"},
+    {code : "0902400000", type : "1",stavka1:"0",stavka2:"",stavka3:"50",NDS:"20"},
+    {code : "0903000000", type : "1",stavka1:"5",stavka2:"",stavka3:"50",NDS:"20"},
+    {code : "0904110000", type : "1",stavka1:"3",stavka2:"",stavka3:"50",NDS:"20"},
+    {code : "0904120000", type : "1",stavka1:"5",stavka2:"",stavka3:"50",NDS:"20"},
+    {code : "0904211000", type : "1",stavka1:"5",stavka2:"",stavka3:"50",NDS:"20"},
+    {code : "0904219000", type : "1",stavka1:"5",stavka2:"",stavka3:"50",NDS:"20"},
+    {code : "0904220000", type : "1",stavka1:"5",stavka2:"",stavka3:"50",NDS:"20"},
+    {code : "0905100000", type : "1",stavka1:"5",stavka2:"",stavka3:"50",NDS:"20"},
+    {code : "0905200000", type : "1",stavka1:"5",stavka2:"",stavka3:"50",NDS:"20"},
+    {code : "3301121000", type : "1",stavka1:"5",stavka2:"",stavka3:"120",NDS:"20"},
+    {code : "3301129000", type : "1",stavka1:"5",stavka2:"",stavka3:"120",NDS:"20"},
+    {code : "3301131000", type : "1",stavka1:"5",stavka2:"",stavka3:"120",NDS:"20"},
+    {code : "3301192000", type : "1",stavka1:"5",stavka2:"",stavka3:"120",NDS:"20"},
+    {code : "3301198000", type : "1",stavka1:"5",stavka2:"",stavka3:"120",NDS:"20"},
+    {code : "3301241000", type : "1",stavka1:"5",stavka2:"",stavka3:"120",NDS:"20"},
+    {code : "3301249000", type : "1",stavka1:"5",stavka2:"",stavka3:"120",NDS:"20"},
+    {code : "3301251000", type : "1",stavka1:"5",stavka2:"",stavka3:"120",NDS:"20"},
+    {code : "3301259000", type : "1",stavka1:"5",stavka2:"",stavka3:"120",NDS:"20"},
+    {code : "3301291100", type : "1",stavka1:"5",stavka2:"",stavka3:"120",NDS:"20"},
+    {code : "3301293100", type : "1",stavka1:"5",stavka2:"",stavka3:"120",NDS:"20"},
+    {code : "3301294100", type : "1",stavka1:"5",stavka2:"",stavka3:"120",NDS:"20"},
+    {code : "3301297100", type : "1",stavka1:"5",stavka2:"",stavka3:"120",NDS:"20"},
+    {code : "3301297900", type : "1",stavka1:"5",stavka2:"",stavka3:"120",NDS:"20"},
+    {code : "3301299100", type : "1",stavka1:"5",stavka2:"",stavka3:"120",NDS:"20"},
+    {code : "3301300000", type : "1",stavka1:"5",stavka2:"",stavka3:"120",NDS:"20"},
+    {code : "3301901000", type : "1",stavka1:"5",stavka2:"",stavka3:"120",NDS:"20"},
+    {code : "3301902100", type : "1",stavka1:"5",stavka2:"",stavka3:"120",NDS:"20"},
+    {code : "3301903000", type : "1",stavka1:"5",stavka2:"",stavka3:"120",NDS:"20"},
+    {code : "3301909000", type : "1",stavka1:"5",stavka2:"",stavka3:"120",NDS:"20"},
+    {code : "3302101000", type : "1",stavka1:"5",stavka2:"",stavka3:"120",NDS:"20"},
+    {code : "3302102100", type : "1",stavka1:"5",stavka2:"",stavka3:"120",NDS:"20"},
+    {code : "3302102900", type : "1",stavka1:"5",stavka2:"",stavka3:"120",NDS:"20"},
+    {code : "3302104000", type : "1",stavka1:"5",stavka2:"",stavka3:"120",NDS:"20"},
+    {code : "3302109000", type : "1",stavka1:"0",stavka2:"",stavka3:"120",NDS:"20"},
+    {code : "3302901000", type : "1",stavka1:"5",stavka2:"",stavka3:"120",NDS:"20"},
+    {code : "3302909000", type : "1",stavka1:"5",stavka2:"",stavka3:"120",NDS:"20"},
+    {code : "3303001000", type : "1",stavka1:"6.5",stavka2:"",stavka3:"120",NDS:"20"},
+    {code : "3303009000", type : "1",stavka1:"6.5",stavka2:"",stavka3:"120",NDS:"20"},
+    {code : "3304100000", type : "1",stavka1:"6.5",stavka2:"",stavka3:"120",NDS:"20"},
+    {code : "3304200000", type : "1",stavka1:"6.5",stavka2:"",stavka3:"120",NDS:"20"},
+    {code : "3304300000", type : "1",stavka1:"6.5",stavka2:"",stavka3:"120",NDS:"20"},
+    {code : "3304910000", type : "1",stavka1:"6.5",stavka2:"",stavka3:"120",NDS:"20"},
+    {code : "3304990000", type : "1",stavka1:"6.5",stavka2:"",stavka3:"120",NDS:"20"},
+    {code : "3305100000", type : "1",stavka1:"6.5",stavka2:"",stavka3:"120",NDS:"20"},
+    {code : "3305200000", type : "1",stavka1:"6.5",stavka2:"",stavka3:"120",NDS:"20"},
+    {code : "3305300000", type : "1",stavka1:"6.5",stavka2:"",stavka3:"120",NDS:"20"},
+    {code : "3305900001", type : "1",stavka1:"6.5",stavka2:"",stavka3:"120",NDS:"20"},
+    {code : "3305900009", type : "1",stavka1:"6.5",stavka2:"",stavka3:"120",NDS:"20"},
+    {code : "3306100000", type : "1",stavka1:"6.5",stavka2:"",stavka3:"120",NDS:"20"},
+    {code : "3306200000", type : "1",stavka1:"6.5",stavka2:"",stavka3:"120",NDS:"20"},
+    {code : "3307100000", type : "1",stavka1:"6.5",stavka2:"",stavka3:"120",NDS:"20"},
+    {code : "3307200000", type : "1",stavka1:"6.5",stavka2:"",stavka3:"120",NDS:"20"},
+    {code : "3307300000", type : "1",stavka1:"6.5",stavka2:"",stavka3:"120",NDS:"20"},
+    {code : "3307410000", type : "1",stavka1:"6.5",stavka2:"",stavka3:"120",NDS:"20"},
+    {code : "3307490000", type : "1",stavka1:"6.5",stavka2:"",stavka3:"120",NDS:"20"},
+    {code : "3307900001", type : "1",stavka1:"5",stavka2:"",stavka3:"120",NDS:"20"},
+    {code : "3307900002", type : "1",stavka1:"5",stavka2:"",stavka3:"120",NDS:"20"},
+    {code : "3307900008", type : "1",stavka1:"6.5",stavka2:"",stavka3:"120",NDS:"20"},
+    {code : "3306900000", type : "1",stavka1:"6.5",stavka2:"",stavka3:"120",NDS:"20"}]
+    
+    indeks = (document.getElementById("id").value); 
+    val = (document.getElementById("value").value); 
+    weight = (document.getElementById("weight").value); 
+    currency = (document.getElementById("rate").value); 
+
+    for (var i = 0; i < 107; i++) {
+                           if (indeks==DB[i].code) {
+                           counter=i;
+                           break;} 
+                        }
+                        if(!counter){alert("Вы ввели неверный код");}
+                        else if(DB[counter].type==1){if(!val){alert("Введите стоимость");} 
+                        else {poshlina=(val*DB[counter].stavka1/100).toFixed(2); nach=val+" бел.руб.";stavka=DB[counter].stavka1+"%";}}
+                        else if(!val){alert("Введите стоимость");}
+                              else if(!weight){alert("Введите вес");}
+                              else if(!currency){alert("Введите курс");}
+                              else if(DB[counter].type==2){poshlina=(weight*DB[counter].stavka2*currency).toFixed(2);
+                              nach=weight+" кг.";stavka=DB[counter].stavka2+" евро/кг.";}
+                              else {poshlina=(val*DB[counter].stavka1/100>weight*DB[counter].stavka2*currency)?(val*DB[counter].stavka1/100).toFixed(2):(weight.value*DB[counter].stavka2*currency).toFixed(2);
+                              nach=(val*DB[counter].stavka1/100>weight*DB[counter].stavka2*currency)?(val+" бел.руб."):(weight+" кг.");
+                              stavka=(val*DB[counter].stavka1/100>weight*DB[counter].stavka2*currency)?(DB[counter].stavka1+"%"):(DB[counter].stavka2+" евро/кг.");}   ;   
+    let sum = ((poshlina*100+val*100)/100).toFixed(2);  
+    let nds = (sum*0.2).toFixed(2);                                            
+    document.getElementById('load1').innerHTML ="Таможенный сбор - " +DB[counter].stavka3+" бел.руб. (Ставка - "+DB[counter].stavka3+" бел.руб.)";
+    document.getElementById('load2').innerHTML ="Ввозная таможеная пошлина - "+poshlina+" бел.руб. (Основа начисления - "+nach+ "; Ставка - "+stavka+ ")";
+    document.getElementById('load3').innerHTML ="НДС - "+nds+"бел.руб. (Основа начисления - "+(sum)+" бел.руб.; Ставка - 20%)";
+                    }
+                        document.getElementById("btn").onclick = someFunc;
+                    </script>
+                </div>
+</div>
+</div>
+
+    </body>
+</html>
